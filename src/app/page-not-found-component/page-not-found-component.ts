@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
+import { InventoryRoutingModule } from '../inventory/inventory-routing-module';
 
 @Component({
   selector: 'app-page-not-found-component',
-  imports: [],
-  template: `
-    <p>
-      page-not-found-component works!
-    </p>
-  `,
-  styles: ``
+  imports: [InventoryRoutingModule],
+  template: ` <p>This page doesn't exist. Go back to <a routerLink="/home">home</a></p> `,
+  styles: ``,
 })
-export class PageNotFoundComponent {
-
-}
+export class PageNotFoundComponent {}
