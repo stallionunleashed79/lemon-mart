@@ -6,4 +6,8 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: '*', component: PageNotFoundComponent },
+  {
+    path: 'manager',
+    loadChildren: () => import('./manager/manager-module').then((m) => m.ManagerModule),
+  },
 ];
