@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManagerHomeComponent } from './manager-home-component/manager-home-component';
+import { UserManagementComponent } from './user-management-component/user-management-component';
+import { ReceiptLookupComponent } from './receipt-lookup-component/receipt-lookup-component';
+import { ManagerComponent } from './manager-component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: ManagerHomeComponent },
+  {
+    path: '',
+    component: ManagerComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: ManagerHomeComponent },
+      { path: 'users', component: UserManagementComponent },
+      { path: 'receipts', component: ReceiptLookupComponent },
+    ],
+  },
 ];
 
 @NgModule({
