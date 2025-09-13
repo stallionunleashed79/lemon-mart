@@ -4,11 +4,11 @@
   </button>&nbsp;
   <a mat-button routerLink="/home"><h1>Lemon Mart</h1></a>
   <span class="example-spacer"></span>
-  <button mat-icon-button>
-    <mat-icon class="icon-spacing">account_circle</mat-icon>
+  <button mat-mini-fab routerLink="/user/profile" matTooltip="Profile" aria-label="User Profile">
+    <mat-icon>account_circle</mat-icon>
   </button>
-  <button mat-icon-button>
-    <mat-icon class="icon-spacing">lock_open</mat-icon>
+  <button mat-mini-fab routerLink="/user/logout" matTooltip="Logout" aria-label="Logout">
+    <mat-icon>lock_open</mat-icon>
   </button>
 </mat-toolbar>
 <router-outlet></router-outlet>

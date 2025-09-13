@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { InventoryRoutingModule } from '../inventory/inventory-routing-module';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-manager-component',
-  imports: [MatToolbar, InventoryRoutingModule, MatButtonModule],
+  imports: [MatToolbar, InventoryRoutingModule, MatButtonModule, RouterLink, RouterOutlet],
   template: `<mat-toolbar color="accent" class="tool-bar">
       <a mat-button routerLink="home" routerLinkActive="active-link"> Manager's Dashboard </a>
       <a mat-button routerLink="users" routerLinkActive="active-link"> User Management </a>
