@@ -1,7 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InventoryComponent } from './inventory-component';
+import { InventoryHomeComponent } from './inventory-home-component/inventory-home-component';
+import { StockEntryComponent } from './stock-entry-component/stock-entry-component';
+import { ProductsComponent } from './products-component/products-component';
+import { CategoriesComponent } from './categories-component/categories-component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: InventoryComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: InventoryHomeComponent },
+      { path: 'stock-entry', component: StockEntryComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'categories', component: CategoriesComponent },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
