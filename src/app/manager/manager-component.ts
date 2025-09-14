@@ -30,16 +30,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       </button>
     </mat-toolbar>
     <router-outlet></router-outlet> `,
-  styles: `
-    .tool-bar {
-      margin-top: 32px;
-      display: flex;
-      gap: 2rem;
-    }
-    .active-link {
-      font-weight: bold;
-      border-bottom: 2px solid #005005;
-    }
-  `,
+  styles: ``,
 })
 export class ManagerComponent {}
