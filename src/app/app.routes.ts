@@ -21,5 +21,11 @@ export const routes: Routes = [
     path: 'inventory',
     loadChildren: () => import('./inventory/inventory-module').then((m) => m.InventoryModule),
   },
-  { path: '*', component: PageNotFoundComponent },
+  {
+    path: '*',
+    loadComponent: () =>
+      import('./page-not-found-component/page-not-found-component').then(
+        (m) => m.PageNotFoundComponent,
+      ),
+  },
 ];
