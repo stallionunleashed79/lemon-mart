@@ -27,8 +27,10 @@ export interface IAuthService {
 }
 
 export abstract class AuthService implements IAuthService {
-  authStatus$: BehaviorSubject<IAuthStatus> = new BehaviorSubject<IAuthStatus>(defaultAuthStatus);
-  currentUser$: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(
+  readonly authStatus$: BehaviorSubject<IAuthStatus> = new BehaviorSubject<IAuthStatus>(
+    defaultAuthStatus,
+  );
+  readonly currentUser$: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(
     new User(
       '',
       '',
