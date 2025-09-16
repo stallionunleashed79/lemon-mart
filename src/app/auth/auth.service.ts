@@ -68,6 +68,7 @@ export abstract class AuthService implements IAuthService {
   protected abstract getCurrentUser(): Observable<User>;
 
   login(email: string, password: string): Observable<void> {
+    this.clearToken();
     const loginResponse$ = this.authProvider(email, password).pipe(
       map((value: { accessToken: any }) => {
         const token = decode(value?.accessToken);
@@ -90,11 +91,22 @@ export abstract class AuthService implements IAuthService {
   }
 
   logout(clearToken?: boolean): void {
+    if (clearToken) {
+      this.clearToken();
+    }
     setTimeout(() => this.authStatus$.next(defaultAuthStatus), 0);
+  }
+
+  protected setToken(jwt: string) {
+    this.cache.setItem('jwt', jwt);
   }
 
   getToken(): string {
     throw new Error('Method not implemented');
+  }
+
+  protected clearToken() {
+    this.cache.removeItem('jwt');
   }
 }
 function decode(accessToken: any) {
